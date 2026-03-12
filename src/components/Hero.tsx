@@ -11,16 +11,16 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
     <section className="relative h-screen flex flex-col items-center px-6 overflow-hidden">
       {/* Fullscreen Video Background */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
-        {/* Light overlay to ensure text legibility on white theme */}
-        <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] z-10" />
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="w-full h-full object-cover opacity-60"
+        {/* Overlay to ensure text legibility */}
+        <div className="absolute inset-0 bg-white/30 z-10" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
         >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-drone-view-of-a-beautiful-landscape-with-a-river-34505-large.mp4" type="video/mp4" />
+          <source src="https://www.dropbox.com/scl/fi/bii91f849h35ys2vllmpu/sunken_valley_card_graded_v2.mp4?rlkey=x5xrzr696ztxoen9vaoookzw9&st=oe7y8qre&raw=1" type="video/mp4" />
         </video>
       </div>
 
