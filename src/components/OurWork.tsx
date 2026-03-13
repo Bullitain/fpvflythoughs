@@ -1,27 +1,15 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Play, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface OurWorkProps {
   onSeeMoreClick: () => void;
 }
 
-const projects = [
-  {
-    title: "Luxury Estate Tour",
-    category: "Real Estate",
-    thumbnail: "https://picsum.photos/seed/estate/1280/720",
-  },
-  {
-    title: "Industrial Facility",
-    category: "Commercial",
-    thumbnail: "https://picsum.photos/seed/industrial/1280/720",
-  },
-  {
-    title: "Event Highlights",
-    category: "Live Events",
-    thumbnail: "https://picsum.photos/seed/event/1280/720",
-  }
+const videos = [
+  { id: 'XvPGVT525Qo' },
+  { id: 'INGTGa5PR8g' },
+  { id: 'cUBg6Qp_N98' },
 ];
 
 export const OurWork: React.FC<OurWorkProps> = ({ onSeeMoreClick }) => {
@@ -40,30 +28,22 @@ export const OurWork: React.FC<OurWorkProps> = ({ onSeeMoreClick }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {projects.map((project, index) => (
+          {videos.map((video, index) => (
             <motion.div
-              key={index}
+              key={video.id}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative aspect-video rounded-[2rem] overflow-hidden bg-zinc-200 shadow-xl shadow-zinc-200/50"
+              className="aspect-video rounded-[2rem] overflow-hidden bg-zinc-200 shadow-xl shadow-zinc-200/50"
             >
-              <img 
-                src={project.thumbnail} 
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                referrerPolicy="no-referrer"
+              <iframe
+                src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
+                title={`FPV Flythrough ${index + 1}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                <p className="text-sky-400 font-bold text-sm mb-2 uppercase tracking-widest">{project.category}</p>
-                <h3 className="text-white text-2xl font-black uppercase tracking-tight">{project.title}</h3>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center scale-75 group-hover:scale-100 transition-transform duration-300">
-                  <Play className="w-6 h-6 text-white fill-current" />
-                </div>
-              </div>
             </motion.div>
           ))}
         </div>
