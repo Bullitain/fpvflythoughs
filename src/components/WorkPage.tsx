@@ -40,16 +40,13 @@ export const WorkPage: React.FC<WorkPageProps> = ({ isOpen, onClose }) => {
               transition={{ delay: 0.15, duration: 0.6 }}
               className="text-center mb-20"
             >
-              <div className="inline-block px-4 py-1.5 rounded-full bg-sky-500/10 text-sky-400 text-sm font-bold mb-6 border border-sky-500/20">
-                OUR PORTFOLIO
-              </div>
               <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white uppercase [word-spacing:0.05em]">
                 OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-200">WORK</span>
               </h1>
             </motion.div>
 
             {/* Videos */}
-            <div className="flex flex-col gap-12">
+            <div className="grid grid-cols-3 gap-6">
               {videos.map((video, index) => (
                 <motion.div
                   key={video.id}
