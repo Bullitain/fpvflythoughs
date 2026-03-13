@@ -24,14 +24,6 @@ export const ValueProp: React.FC = () => {
   return (
     <section id="services" className="py-32 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="inline-block px-4 py-1.5 rounded-full bg-sky-50 text-sky-600 text-sm font-bold mb-6 border border-sky-100"
-        >
-          OUR SERVICES
-        </motion.div>
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
