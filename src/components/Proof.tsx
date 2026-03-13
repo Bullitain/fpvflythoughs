@@ -8,7 +8,7 @@ const testimonials = [
     role: "Film Enthusiast",
     content: "i literally have never seen something this cool in my entire life... and i was in vietnam!",
     rating: 5,
-    avatar: "https://picsum.photos/seed/person1/100/100"
+    avatar: "https://media1.tenor.com/m/qz-TUNf2WZQAAAAC/lad-dont-even-joke.gif"
   },
   {
     name: "Sarah Chen",
