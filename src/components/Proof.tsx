@@ -4,9 +4,9 @@ import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Alex Rivera",
-    role: "Marketing Director, Hyatt",
-    content: "The FPV fly-through completely changed how we showcase our resorts. It's not just a video; it's an experience that drives bookings.",
+    name: "Stanley Kubrik",
+    role: "Film Enthusiast",
+    content: "i literally have never seen something this cool in my entire life... and i was in vietnam!",
     rating: 5,
     avatar: "https://picsum.photos/seed/person1/100/100"
   },
