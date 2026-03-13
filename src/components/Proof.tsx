@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Star, Quote } from 'lucide-react';
+import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
@@ -64,9 +64,6 @@ export const Proof: React.FC = () => {
             </div>
             <div className="text-sm">
               <p className="text-zinc-900 font-black uppercase tracking-tight">50+ Happy Clients</p>
-              <div className="flex text-sky-500">
-                {[1, 2, 3, 4, 5].map((i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
-              </div>
             </div>
           </motion.div>
         </div>
@@ -84,10 +81,6 @@ export const Proof: React.FC = () => {
             >
               <div className="absolute top-10 right-10 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
                 <Quote className="w-20 h-20" />
-              </div>
-              
-              <div className="flex gap-1 mb-8 text-sky-500">
-                {[...Array(t.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
               
               <p className="text-zinc-700 text-xl mb-10 leading-relaxed font-medium italic relative z-10">
