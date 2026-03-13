@@ -8,7 +8,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
   return (
-    <section className="relative h-screen flex flex-col items-center px-6 overflow-hidden">
+    <section className="relative isolate h-screen flex flex-col items-center px-6 overflow-hidden">
       {/* Fullscreen Video Background */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
         {/* Overlay to ensure text legibility */}
@@ -20,7 +20,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="https://www.dropbox.com/scl/fi/bii91f849h35ys2vllmpu/sunken_valley_card_graded_v2.mp4?rlkey=x5xrzr696ztxoen9vaoookzw9&st=oe7y8qre&raw=1" type="video/mp4" />
+          <source src="https://www.dropbox.com/scl/fi/o85pd2ukcd89g1pyopzs1/Cabot-_Tower_card_graded_v2.mp4?rlkey=zmt93n6cx8kb7y5i6c2hf0aga&st=9fgv96vd&raw=1" type="video/mp4" />
         </video>
       </div>
 
