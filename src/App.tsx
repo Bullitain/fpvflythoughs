@@ -8,10 +8,12 @@ import { Proof } from './components/Proof';
 import { CTA } from './components/CTA';
 import { ContactForm } from './components/ContactForm';
 import { WorkPage } from './components/WorkPage';
+import { VideoModal } from './components/VideoModal';
 
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isWorkOpen, setIsWorkOpen] = useState(false);
+  const [isShowreelOpen, setIsShowreelOpen] = useState(false);
 
   const openContact = () => setIsContactOpen(true);
   const closeContact = () => setIsContactOpen(false);
@@ -22,7 +24,7 @@ export default function App() {
       <Navbar onContactClick={openContact} />
       
       <main>
-        <Hero onContactClick={openContact} />
+        <Hero onContactClick={openContact} onShowreelClick={() => setIsShowreelOpen(true)} />
         
         {/* Detail Section - Value Proposition in more detail */}
         <ValueProp />
@@ -39,6 +41,7 @@ export default function App() {
 
       <ContactForm isOpen={isContactOpen} onClose={closeContact} />
       <WorkPage isOpen={isWorkOpen} onClose={() => setIsWorkOpen(false)} />
+      <VideoModal isOpen={isShowreelOpen} onClose={() => setIsShowreelOpen(false)} />
 
       {/* ElevenLabs Conversational AI Widget */}
       <elevenlabs-convai agent-id="agent_6101kkgw054yewgbxvx7ghgvhry1"></elevenlabs-convai>

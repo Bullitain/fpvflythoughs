@@ -4,9 +4,10 @@ import { ArrowRight, Play } from 'lucide-react';
 
 interface HeroProps {
   onContactClick: () => void;
+  onShowreelClick: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
+export const Hero: React.FC<HeroProps> = ({ onContactClick, onShowreelClick }) => {
   return (
     <section className="relative isolate h-screen flex flex-col items-center px-6 overflow-hidden">
       {/* Fullscreen Video Background */}
@@ -55,7 +56,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-white/30 transition-colors pointer-events-none" />
           </button>
           
-          <button className="group flex items-center gap-2 px-8 py-4 rounded-full border border-zinc-200 bg-white/80 text-zinc-900 font-bold hover:bg-white transition-all active:scale-95 overflow-hidden relative shadow-sm">
+          <button onClick={onShowreelClick} className="group flex items-center gap-2 px-8 py-4 rounded-full border border-zinc-200 bg-white/80 text-zinc-900 font-bold hover:bg-white transition-all active:scale-95 overflow-hidden relative shadow-sm">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             <Play className="w-5 h-5 fill-current relative z-10 text-sky-500" />
             <span className="relative z-10">Watch Showreel</span>
