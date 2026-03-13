@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-zinc-200 bg-white/70"
     >
       <div className="flex items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-3 group cursor-pointer">
+        <div className="flex items-center gap-3 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <div className="p-1.5 rounded-xl bg-zinc-900 text-white group-hover:bg-gradient-to-r group-hover:from-sky-600 group-hover:to-sky-400 transition-all duration-300">
             <DroneLogo />
           </div>
