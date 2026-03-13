@@ -44,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button 
             onClick={onContactClick}
-            className="group relative px-8 py-4 rounded-full bg-zinc-900 text-white font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-zinc-200"
+            className="group relative px-8 py-4 rounded-full bg-zinc-900 text-white font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95"
           >
             <span className="relative z-10 flex items-center gap-2">
               Start Your Project <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
