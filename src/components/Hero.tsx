@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
       {/* Fullscreen Video Background */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
         {/* Overlay to ensure text legibility */}
-        <div className="absolute inset-0 bg-white/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60 z-10" />
         <video
           autoPlay
           loop
@@ -30,14 +30,14 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center z-10 max-w-5xl pt-[40vh]"
       >
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-zinc-900 leading-[0.85] mb-8 uppercase [word-spacing:0.05em]">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[0.85] mb-8 uppercase [word-spacing:0.05em] drop-shadow-lg">
           UNINTERRUPTED FLOW. <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-sky-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-200">
             UNMATCHED PERSPECTIVE.
           </span>
         </h1>
 
-        <p className="text-lg md:text-xl text-zinc-600 max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
+        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-12 font-medium leading-relaxed drop-shadow-md">
           Immersive FPV drone fly-throughs that transform your physical space into a cinematic journey. Elevate your brand with the perspective it deserves.
         </p>
 
