@@ -14,7 +14,7 @@ const videos = [
 
 export const OurWork: React.FC<OurWorkProps> = ({ onSeeMoreClick }) => {
   return (
-    <section id="work" className="py-32 px-6 bg-zinc-50/50">
+    <section id="work" className="py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <motion.h2 
