@@ -2,6 +2,10 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Play, ArrowRight } from 'lucide-react';
 
+interface OurWorkProps {
+  onSeeMoreClick: () => void;
+}
+
 const projects = [
   {
     title: "Luxury Estate Tour",
@@ -20,7 +24,7 @@ const projects = [
   }
 ];
 
-export const OurWork: React.FC = () => {
+export const OurWork: React.FC<OurWorkProps> = ({ onSeeMoreClick }) => {
   return (
     <section id="work" className="py-32 px-6 bg-zinc-50/50">
       <div className="max-w-7xl mx-auto">
@@ -73,7 +77,10 @@ export const OurWork: React.FC = () => {
         </div>
 
         <div className="text-center">
-          <button className="group inline-flex items-center gap-3 px-10 py-5 rounded-full bg-white border border-zinc-200 text-zinc-900 font-black uppercase tracking-tight hover:border-sky-500 transition-all shadow-lg shadow-zinc-200/50 active:scale-95">
+          <button
+            onClick={onSeeMoreClick}
+            className="group inline-flex items-center gap-3 px-10 py-5 rounded-full bg-white border border-zinc-200 text-zinc-900 font-black uppercase tracking-tight hover:border-sky-500 transition-all shadow-lg shadow-zinc-200/50 active:scale-95"
+          >
             See More Work
             <ArrowRight className="w-5 h-5 text-sky-500 group-hover:translate-x-1 transition-transform" />
           </button>

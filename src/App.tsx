@@ -7,9 +7,11 @@ import { OurWork } from './components/OurWork';
 import { Proof } from './components/Proof';
 import { CTA } from './components/CTA';
 import { ContactForm } from './components/ContactForm';
+import { WorkPage } from './components/WorkPage';
 
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isWorkOpen, setIsWorkOpen] = useState(false);
 
   const openContact = () => setIsContactOpen(true);
   const closeContact = () => setIsContactOpen(false);
@@ -26,7 +28,7 @@ export default function App() {
         <ValueProp />
 
         {/* Portfolio Section */}
-        <OurWork />
+        <OurWork onSeeMoreClick={() => setIsWorkOpen(true)} />
         
         {/* Proof Section - Testimonials and Footage */}
         <Proof />
@@ -36,6 +38,7 @@ export default function App() {
       </main>
 
       <ContactForm isOpen={isContactOpen} onClose={closeContact} />
+      <WorkPage isOpen={isWorkOpen} onClose={() => setIsWorkOpen(false)} />
 
       {/* ElevenLabs Conversational AI Widget */}
       <elevenlabs-convai agent-id="agent_6101kkgw054yewgbxvx7ghgvhry1"></elevenlabs-convai>
