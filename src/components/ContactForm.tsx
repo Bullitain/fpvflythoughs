@@ -26,9 +26,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose }) => 
     try {
       await fetch('https://fpvflythroughs.app.n8n.cloud/webhook/479acc90-a6e3-4f63-9ca4-9916efd2fc04', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
-          'Content-Type': 'text/plain',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           ...formData,
