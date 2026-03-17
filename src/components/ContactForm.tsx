@@ -24,7 +24,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose }) => 
     setErrorMessage('');
     
     try {
-      const response = await fetch('https://services.leadconnectorhq.com/hooks/R8S4SHvvOZKlRH0P9Qsp/webhook-trigger/1c99d417-519a-49e8-ab99-eb2fa8978709', {
+      const response = await fetch('https://fpvflythroughs.app.n8n.cloud/webhook/479acc90-a6e3-4f63-9ca4-9916efd2fc04', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
