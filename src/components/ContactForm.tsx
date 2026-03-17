@@ -24,8 +24,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose }) => 
     setErrorMessage('');
     
     try {
-      const response = await fetch('https://fpvflythroughs.app.n8n.cloud/webhook/479acc90-a6e3-4f63-9ca4-9916efd2fc04', {
+      await fetch('https://fpvflythroughs.app.n8n.cloud/webhook/479acc90-a6e3-4f63-9ca4-9916efd2fc04', {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -35,10 +36,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose }) => 
           submittedAt: new Date().toISOString()
         }),
       });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
-      }
 
       setIsSuccess(true);
       
