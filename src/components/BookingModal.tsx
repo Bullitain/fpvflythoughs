@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Calendar } from 'lucide-react';
 
@@ -13,77 +13,63 @@ interface BookingModalProps {
   onClose: () => void;
 }
 
-export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const embedInitialised = useRef(false);
+const CAL_DIV_ID = 'my-cal-inline-fpv-flythrough-discovery-call';
+const NAMESPACE = 'fpv-flythrough-discovery-call';
 
+export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    // Run Cal.com's exact loader IIFE, then init inline — calls are queued
+    // so the embed initialises correctly once embed.js finishes loading.
+    (function (C: any, A: string, L: string) {
+      let p = function (a: any, ar: any) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement('script')).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === 'string') {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ['initNamespace', namespace]);
+          } else {
+            p(cal, ar);
+          }
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, 'https://app.cal.com/embed/embed.js', 'init');
+
+    window.Cal('init', NAMESPACE, { origin: 'https://app.cal.com' });
+
+    window.Cal.ns[NAMESPACE]('inline', {
+      elementOrSelector: `#${CAL_DIV_ID}`,
+      config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' },
+      calLink: 'ben-wray-uyctap/fpv-flythrough-discovery-call',
+    });
+
+    window.Cal.ns[NAMESPACE]('ui', {
+      hideEventTypeDetails: false,
+      layout: 'month_view',
+    });
+  }, [isOpen]);
+
+  // Clear the embed container when the modal closes so it re-inits fresh next time
   useEffect(() => {
     if (!isOpen) {
-      embedInitialised.current = false;
-      return;
-    }
-
-    // Don't re-init if already done for this open
-    if (embedInitialised.current) return;
-    embedInitialised.current = true;
-
-    const NAMESPACE = 'fpv-discovery-call';
-
-    const initInline = () => {
-      const Cal = window.Cal;
-      if (!Cal || !containerRef.current) return;
-
-      // Clear any previous embed content
-      containerRef.current.innerHTML = '';
-
-      Cal('init', NAMESPACE, { origin: 'https://app.cal.com' });
-      Cal.ns[NAMESPACE]('inline', {
-        elementOrSelector: containerRef.current,
-        calLink: 'ben-wray-uyctap/fpv-flythrough-discovery-call',
-        config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' },
-      });
-      Cal.ns[NAMESPACE]('ui', {
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-      });
-    };
-
-    if (window.Cal?.loaded) {
-      initInline();
-    } else {
-      // Run the Cal.com loader, then init once the script is ready
-      (function (C: Window, A: string, L: string) {
-        const p = (a: any, ar: any) => a.q.push(ar);
-        const d = C.document;
-        C.Cal =
-          C.Cal ||
-          function (...args: any[]) {
-            const cal = C.Cal!;
-            if (!cal.loaded) {
-              cal.ns = {};
-              cal.q = cal.q || [];
-              const s = d.createElement('script') as HTMLScriptElement;
-              s.src = A;
-              s.onload = initInline;
-              d.head.appendChild(s);
-              cal.loaded = true;
-            }
-            if (args[0] === L) {
-              const api: any = (...a: any[]) => p(api, a);
-              const ns = args[1];
-              api.q = api.q || [];
-              if (typeof ns === 'string') {
-                cal.ns[ns] = cal.ns[ns] || api;
-                p(cal.ns[ns], args);
-                p(cal, ['initNamespace', ns]);
-              } else {
-                p(cal, args);
-              }
-              return;
-            }
-            p(cal, args);
-          };
-      })(window, 'https://app.cal.com/embed/embed.js', 'init');
+      const el = document.getElementById(CAL_DIV_ID);
+      if (el) el.innerHTML = '';
     }
   }, [isOpen]);
 
@@ -141,9 +127,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             {/* Cal.com Inline Embed */}
             <div className="flex-1 overflow-y-auto px-4 pb-4 pt-4">
               <div
-                ref={containerRef}
+                id={CAL_DIV_ID}
                 className="w-full rounded-2xl overflow-hidden border border-zinc-100"
-                style={{ minHeight: '500px' }}
+                style={{ width: '100%', height: '100%', overflow: 'scroll', minHeight: '500px' }}
               />
             </div>
           </motion.div>

@@ -45,7 +45,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuc
         setFormData({ name: '', email: '', phone: '', description: '' });
         onClose();
         onSuccess?.();
-      }, 2000);
+      }, 1000);
     } catch (error) {
       console.error('Submission error:', error);
       setErrorMessage('There was an error sending your message. Please try again.');
