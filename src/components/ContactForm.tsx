@@ -2,10 +2,17 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Send, User, Mail, Phone, MessageSquare } from 'lucide-react';
 
+export interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  description: string;
+}
+
 interface ContactFormProps {
   isOpen: boolean;
   onClose: () => void;
-  onSuccess?: () => void;
+  onSuccess?: (data: ContactFormData) => void;
 }
 
 export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuccess }) => {
@@ -39,12 +46,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuc
 
       setIsSuccess(true);
 
-      // Reset form after success then open booking modal
+      const submitted = { ...formData };
+
+      // Reset form after success then trigger Cal.com booking
       setTimeout(() => {
         setIsSuccess(false);
         setFormData({ name: '', email: '', phone: '', description: '' });
         onClose();
-        onSuccess?.();
+        onSuccess?.(submitted);
       }, 1000);
     } catch (error) {
       console.error('Submission error:', error);
