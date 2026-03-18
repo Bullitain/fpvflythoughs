@@ -74,11 +74,7 @@ export default function App() {
         name: data.name,
         email: data.email,
         notes: data.description,
-        ...(data.phone ? {
-          phone: data.phone,
-          phoneNumber: data.phone,
-          smsReminderNumber: data.phone,
-        } : {}),
+        ...(data.phone ? { attendeePhoneNumber: data.phone } : {}),
       },
     });
   };
