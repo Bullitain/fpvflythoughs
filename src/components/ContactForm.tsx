@@ -15,10 +15,26 @@ interface ContactFormProps {
   onSuccess?: (data: ContactFormData) => void;
 }
 
+const COUNTRY_CODES = [
+  { code: '+44', flag: '🇬🇧', label: 'UK' },
+  { code: '+1',  flag: '🇺🇸', label: 'US/CA' },
+  { code: '+353', flag: '🇮🇪', label: 'IE' },
+  { code: '+33',  flag: '🇫🇷', label: 'FR' },
+  { code: '+49',  flag: '🇩🇪', label: 'DE' },
+  { code: '+34',  flag: '🇪🇸', label: 'ES' },
+  { code: '+39',  flag: '🇮🇹', label: 'IT' },
+  { code: '+31',  flag: '🇳🇱', label: 'NL' },
+  { code: '+61',  flag: '🇦🇺', label: 'AU' },
+  { code: '+64',  flag: '🇳🇿', label: 'NZ' },
+  { code: '+971', flag: '🇦🇪', label: 'UAE' },
+  { code: '+65',  flag: '🇸🇬', label: 'SG' },
+];
+
 export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuccess }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    countryCode: '+44',
     phone: '',
     description: ''
   });
@@ -46,12 +62,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuc
 
       setIsSuccess(true);
 
-      const submitted = { ...formData };
+      const submitted = {
+        ...formData,
+        phone: formData.phone ? `${formData.countryCode}${formData.phone}` : '',
+      };
 
       // Reset form after success then trigger Cal.com booking
       setTimeout(() => {
         setIsSuccess(false);
-        setFormData({ name: '', email: '', phone: '', description: '' });
+        setFormData({ name: '', email: '', countryCode: '+44', phone: '', description: '' });
         onClose();
         onSuccess?.(submitted);
       }, 1000);
@@ -150,14 +169,29 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuc
                   {/* Phone (Optional) */}
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 ml-1">Phone Number (Optional)</label>
-                    <div className="relative group">
-                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400 group-focus-within:text-sky-500 transition-colors" />
+                    <div className="relative group flex">
+                      {/* Country code dropdown */}
+                      <div className="relative shrink-0">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 group-focus-within:text-sky-500 transition-colors pointer-events-none" />
+                        <select
+                          value={formData.countryCode}
+                          onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
+                          className="h-full bg-zinc-100 border border-zinc-200 rounded-l-2xl pl-8 pr-2 text-zinc-700 text-sm font-medium focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all appearance-none cursor-pointer"
+                        >
+                          {COUNTRY_CODES.map(({ code, flag, label }) => (
+                            <option key={code} value={code}>
+                              {flag} {code} ({label})
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      {/* Number input */}
                       <input
                         type="tel"
-                        placeholder="+44 7000 000000"
+                        placeholder="7000 000000"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl py-4 pl-12 pr-4 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all"
+                        className="w-full bg-zinc-50 border border-zinc-200 border-l-0 rounded-r-2xl py-4 px-4 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all"
                       />
                     </div>
                   </div>
