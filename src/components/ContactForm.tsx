@@ -5,9 +5,10 @@ import { X, Send, User, Mail, Phone, MessageSquare } from 'lucide-react';
 interface ContactFormProps {
   isOpen: boolean;
   onClose: () => void;
+  onSuccess?: () => void;
 }
 
-export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose }) => {
+export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuccess }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,12 +38,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose }) => 
       });
 
       setIsSuccess(true);
-      
-      // Reset form after success
+
+      // Reset form after success then open booking modal
       setTimeout(() => {
         setIsSuccess(false);
-        onClose();
         setFormData({ name: '', email: '', phone: '', description: '' });
+        onClose();
+        onSuccess?.();
       }, 2000);
     } catch (error) {
       console.error('Submission error:', error);

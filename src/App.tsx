@@ -7,11 +7,13 @@ import { OurWork } from './components/OurWork';
 import { Proof } from './components/Proof';
 import { CTA } from './components/CTA';
 import { ContactForm } from './components/ContactForm';
+import { BookingModal } from './components/BookingModal';
 import { WorkPage } from './components/WorkPage';
 import { VideoModal } from './components/VideoModal';
 
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [isWorkOpen, setIsWorkOpen] = useState(false);
   const [isShowreelOpen, setIsShowreelOpen] = useState(false);
 
@@ -39,7 +41,12 @@ export default function App() {
         <CTA onContactClick={openContact} />
       </main>
 
-      <ContactForm isOpen={isContactOpen} onClose={closeContact} />
+      <ContactForm
+        isOpen={isContactOpen}
+        onClose={closeContact}
+        onSuccess={() => setIsBookingOpen(true)}
+      />
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
       <WorkPage isOpen={isWorkOpen} onClose={() => setIsWorkOpen(false)} />
       <VideoModal isOpen={isShowreelOpen} onClose={() => setIsShowreelOpen(false)} />
 
