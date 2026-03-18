@@ -154,10 +154,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuc
 
                   {/* Business Name */}
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 ml-1">Business Name (Optional)</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 ml-1">Business Name</label>
                     <div className="relative group">
                       <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400 group-focus-within:text-sky-500 transition-colors" />
                       <input
+                        required
                         type="text"
                         placeholder="Acme Ltd"
                         value={formData.businessName}
