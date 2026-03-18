@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Send, User, Mail, Phone, MessageSquare } from 'lucide-react';
+import { X, Send, User, Building2, Mail, Phone, MessageSquare } from 'lucide-react';
 
 export interface ContactFormData {
   name: string;
+  businessName: string;
   email: string;
   phone: string;
   description: string;
@@ -33,6 +34,7 @@ const COUNTRY_CODES = [
 export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuccess }) => {
   const [formData, setFormData] = useState({
     name: '',
+    businessName: '',
     email: '',
     countryCode: '+44',
     phone: '',
@@ -70,7 +72,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuc
       // Reset form after success then trigger Cal.com booking
       setTimeout(() => {
         setIsSuccess(false);
-        setFormData({ name: '', email: '', countryCode: '+44', phone: '', description: '' });
+        setFormData({ name: '', businessName: '', email: '', countryCode: '+44', phone: '', description: '' });
         onClose();
         onSuccess?.(submitted);
       }, 1000);
@@ -145,6 +147,21 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose, onSuc
                         placeholder="John Doe"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl py-4 pl-12 pr-4 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Business Name */}
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 ml-1">Business Name (Optional)</label>
+                    <div className="relative group">
+                      <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400 group-focus-within:text-sky-500 transition-colors" />
+                      <input
+                        type="text"
+                        placeholder="Acme Ltd"
+                        value={formData.businessName}
+                        onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-2xl py-4 pl-12 pr-4 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all"
                       />
                     </div>
