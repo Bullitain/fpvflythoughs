@@ -21,7 +21,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick, onShowreelClick }) =
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="https://www.dropbox.com/scl/fi/o85pd2ukcd89g1pyopzs1/Cabot-_Tower_card_graded_v2.mp4?rlkey=zmt93n6cx8kb7y5i6c2hf0aga&st=9fgv96vd&raw=1" type="video/mp4" />
+          <source src="https://www.dropbox.com/scl/fi/mxyip8tqszxuwobe4tllm/FPV-FLYTHROUGHS-LANDING-PAGE-V5.mov?rlkey=i91nmt2hr8e3gn7bfc1zaf63d&st=ibqlndsc&raw=1" type="video/mp4" />
         </video>
       </div>
 
@@ -56,10 +56,13 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick, onShowreelClick }) =
             <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-white/30 transition-colors pointer-events-none" />
           </button>
           
-          <button onClick={onShowreelClick} className="group flex items-center gap-2 px-8 py-4 rounded-full border border-zinc-200 bg-white/80 text-zinc-900 font-bold hover:bg-white transition-all active:scale-95 overflow-hidden relative shadow-sm">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            <Play className="w-5 h-5 fill-current relative z-10 text-sky-500" />
-            <span className="relative z-10">Watch Showreel</span>
+          <button onClick={onShowreelClick} className="group relative px-8 py-4 rounded-full bg-white text-zinc-900 font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-sm">
+            <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+              <Play className="w-5 h-5 fill-current text-sky-500 group-hover:text-white transition-colors duration-300" />
+              Watch Showreel
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-600 to-sky-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-white/30 transition-colors pointer-events-none" />
           </button>
         </div>
       </motion.div>
