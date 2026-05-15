@@ -21,7 +21,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick, onShowreelClick }) =
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="https://www.dropbox.com/scl/fi/mxyip8tqszxuwobe4tllm/FPV-FLYTHROUGHS-LANDING-PAGE-V5.mov?rlkey=i91nmt2hr8e3gn7bfc1zaf63d&st=ibqlndsc&raw=1" type="video/mp4" />
+          <source src="https://www.dropbox.com/scl/fi/zyz0bcjrw5nex0h08hhk4/FPV-FLYTHROUGHS-LANDING-PAGE-V6.mov?rlkey=2rw34yjdffupnlvmi06eekh9w&st=7ubsecgw&raw=1" type="video/mp4" />
         </video>
       </div>
 
