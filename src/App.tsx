@@ -22,7 +22,7 @@ const CAL_LINK = 'ben-wray-uyctap/fpv-flythrough-discovery-call';
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isWorkOpen, setIsWorkOpen] = useState(false);
-  const [isShowreelOpen, setIsShowreelOpen] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const openContact = () => setIsContactOpen(true);
   const closeContact = () => setIsContactOpen(false);
@@ -85,13 +85,13 @@ export default function App() {
       <Navbar onContactClick={openContact} />
 
       <main>
-        <Hero onContactClick={openContact} onShowreelClick={() => setIsShowreelOpen(true)} />
+        <Hero onContactClick={openContact} onShowreelClick={() => setActiveVideo('pILkdNeoy6k')} />
 
         {/* Detail Section - Value Proposition in more detail */}
         <ValueProp />
 
         {/* Portfolio Section */}
-        <OurWork onSeeMoreClick={() => setIsWorkOpen(true)} />
+        <OurWork onSeeMoreClick={() => setIsWorkOpen(true)} onVideoClick={(id) => setActiveVideo(id)} />
 
         {/* Proof Section - Testimonials and Footage */}
         <Proof />
@@ -105,8 +105,8 @@ export default function App() {
         onClose={closeContact}
         onSuccess={handleContactSuccess}
       />
-      <WorkPage isOpen={isWorkOpen} onClose={() => setIsWorkOpen(false)} />
-      <VideoModal isOpen={isShowreelOpen} onClose={() => setIsShowreelOpen(false)} />
+      <WorkPage isOpen={isWorkOpen} onClose={() => setIsWorkOpen(false)} onVideoClick={(id) => setActiveVideo(id)} />
+      <VideoModal isOpen={activeVideo !== null} onClose={() => setActiveVideo(null)} videoId={activeVideo ?? ''} />
 
       {/* ElevenLabs Conversational AI Widget */}
       <elevenlabs-convai agent-id="agent_6101kkgw054yewgbxvx7ghgvhry1"></elevenlabs-convai>

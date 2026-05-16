@@ -1,42 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
 interface OurWorkProps {
   onSeeMoreClick: () => void;
+  onVideoClick: (id: string) => void;
 }
 
-const VideoTile = ({ id, index }: { id: string; index: number }) => {
-  const [playing, setPlaying] = useState(false);
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className="aspect-video rounded-[2rem] overflow-hidden bg-zinc-900 shadow-xl shadow-zinc-200/50 hover:scale-105 transition-transform duration-300 cursor-pointer"
-    >
-      {playing ? (
-        <iframe
-          src={`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&autoplay=1`}
-          title={`FPV Flythrough ${index + 1}`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full"
-        />
-      ) : (
-        <div onClick={() => setPlaying(true)} className="w-full h-full">
-          <img
-            src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
-            onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }}
-            alt={`FPV Flythrough ${index + 1}`}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      )}
-    </motion.div>
-  );
-};
+const VideoTile = ({ id, index, onPlay }: { id: string; index: number; onPlay: (id: string) => void }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.95 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ delay: index * 0.1 }}
+    onClick={() => onPlay(id)}
+    className="aspect-video rounded-[2rem] overflow-hidden bg-zinc-900 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_rgba(56,189,248,0.35)]"
+  >
+    <img
+      src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+      onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }}
+      alt={`FPV Flythrough ${index + 1}`}
+      className="w-full h-full object-cover"
+    />
+  </motion.div>
+);
 
 const videos = [
   { id: 'mEhHKseXmGI' },
@@ -44,7 +31,7 @@ const videos = [
   { id: '3-Xczq8KCK0' },
 ];
 
-export const OurWork: React.FC<OurWorkProps> = ({ onSeeMoreClick }) => {
+export const OurWork: React.FC<OurWorkProps> = ({ onSeeMoreClick, onVideoClick }) => {
   return (
     <section id="work" className="py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -61,7 +48,7 @@ export const OurWork: React.FC<OurWorkProps> = ({ onSeeMoreClick }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {videos.map((video, index) => (
-            <VideoTile key={video.id} id={video.id} index={index} />
+            <VideoTile key={video.id} id={video.id} index={index} onPlay={onVideoClick} />
           ))}
         </div>
 

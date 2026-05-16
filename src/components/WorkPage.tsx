@@ -1,42 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 
 interface WorkPageProps {
   isOpen: boolean;
   onClose: () => void;
+  onVideoClick: (id: string) => void;
 }
 
-const VideoTile = ({ id, index }: { id: string; index: number }) => {
-  const [playing, setPlaying] = useState(false);
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 + index * 0.12, duration: 0.6 }}
-      className="rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-200 shadow-xl shadow-zinc-200/50 aspect-video hover:scale-105 transition-transform duration-300 cursor-pointer"
-    >
-      {playing ? (
-        <iframe
-          src={`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&autoplay=1`}
-          title={`FPV Flythrough ${index + 1}`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full"
-        />
-      ) : (
-        <div onClick={() => setPlaying(true)} className="w-full h-full">
-          <img
-            src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
-            onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }}
-            alt={`FPV Flythrough ${index + 1}`}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      )}
-    </motion.div>
-  );
-};
+const VideoTile = ({ id, index, onPlay }: { id: string; index: number; onPlay: (id: string) => void }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2 + index * 0.12, duration: 0.6 }}
+    onClick={() => onPlay(id)}
+    className="rounded-3xl overflow-hidden bg-zinc-900 aspect-video cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_rgba(56,189,248,0.35)]"
+  >
+    <img
+      src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+      onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }}
+      alt={`FPV Flythrough ${index + 1}`}
+      className="w-full h-full object-cover"
+    />
+  </motion.div>
+);
 
 const videos = [
   { id: 'mEhHKseXmGI' },
@@ -46,7 +33,7 @@ const videos = [
   { id: 'c8gOQNyImqc' },
 ];
 
-export const WorkPage: React.FC<WorkPageProps> = ({ isOpen, onClose }) => {
+export const WorkPage: React.FC<WorkPageProps> = ({ isOpen, onClose, onVideoClick }) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -81,7 +68,7 @@ export const WorkPage: React.FC<WorkPageProps> = ({ isOpen, onClose }) => {
             {/* Videos */}
             <div className="grid grid-cols-3 gap-6">
               {videos.map((video, index) => (
-                <VideoTile key={video.id} id={video.id} index={index} />
+                <VideoTile key={video.id} id={video.id} index={index} onPlay={onVideoClick} />
               ))}
             </div>
           </div>

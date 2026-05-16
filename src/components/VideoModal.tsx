@@ -5,9 +5,10 @@ import { X } from 'lucide-react';
 interface VideoModalProps {
   isOpen: boolean;
   onClose: () => void;
+  videoId: string;
 }
 
-export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
+export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoId }) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -31,7 +32,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
             className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10"
           >
             <iframe
-              src="https://www.youtube.com/embed/pILkdNeoy6k?autoplay=1&rel=0&modestbranding=1"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
               title="Showreel"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
