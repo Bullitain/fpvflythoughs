@@ -38,7 +38,7 @@ export const Proof: React.FC = () => {
               viewport={{ once: true }}
               className="text-5xl md:text-7xl font-black tracking-tight text-zinc-900 mb-6 uppercase [word-spacing:0.05em]"
             >
-              OUR TRUSTED <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-sky-400">CLIENTS</span>
+              OUR HAPPY <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-sky-400">CLIENTS</span>
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, x: -20 }}
@@ -47,7 +47,7 @@ export const Proof: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="text-zinc-600 text-xl font-medium"
             >
-              We've helped businesses across the globe elevate their visual presence.
+              We've helped businesses across the UK elevate their visual presence.
             </motion.p>
           </div>
           
