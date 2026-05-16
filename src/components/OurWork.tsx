@@ -11,7 +11,7 @@ const VideoTile = ({ id, index, onPlay }: { id: string; index: number; onPlay: (
   <div className="relative group/tile">
     {/* Glow — blurred copy of the thumbnail, fades in on hover */}
     <div
-      className="absolute -inset-4 rounded-[2.5rem] opacity-0 group-hover/tile:opacity-90 transition-opacity duration-500 blur-[40px] scale-110 pointer-events-none"
+      className="absolute -inset-4 rounded-[2.5rem] opacity-0 group-hover/tile:opacity-60 transition-opacity duration-500 blur-[40px] scale-110 pointer-events-none"
       style={{ backgroundImage: `url(https://img.youtube.com/vi/${id}/maxresdefault.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     />
     <motion.div
