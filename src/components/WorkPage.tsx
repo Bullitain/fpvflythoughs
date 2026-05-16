@@ -8,6 +8,11 @@ interface WorkPageProps {
 }
 
 const videos = [
+  { id: 'mEhHKseXmGI' },
+  { id: 'QGnu_gR-vzo' },
+  { id: '3-Xczq8KCK0' },
+  { id: 'r7dnBAwdEZQ' },
+  { id: 'c8gOQNyImqc' },
   { id: 'XvPGVT525Qo' },
   { id: 'INGTGa5PR8g' },
   { id: 'cUBg6Qp_N98' },

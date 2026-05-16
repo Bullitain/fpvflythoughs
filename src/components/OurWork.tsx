@@ -7,9 +7,9 @@ interface OurWorkProps {
 }
 
 const videos = [
-  { id: 'XvPGVT525Qo' },
-  { id: 'INGTGa5PR8g' },
-  { id: 'cUBg6Qp_N98' },
+  { id: 'mEhHKseXmGI' },
+  { id: 'QGnu_gR-vzo' },
+  { id: '3-Xczq8KCK0' },
 ];
 
 export const OurWork: React.FC<OurWorkProps> = ({ onSeeMoreClick }) => {
