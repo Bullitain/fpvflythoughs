@@ -13,9 +13,6 @@ const videos = [
   { id: '3-Xczq8KCK0' },
   { id: 'r7dnBAwdEZQ' },
   { id: 'c8gOQNyImqc' },
-  { id: 'XvPGVT525Qo' },
-  { id: 'INGTGa5PR8g' },
-  { id: 'cUBg6Qp_N98' },
 ];
 
 export const WorkPage: React.FC<WorkPageProps> = ({ isOpen, onClose }) => {
