@@ -57,8 +57,18 @@ export const Proof: React.FC = () => {
             viewport={{ once: true }}
             className="flex items-center gap-4 p-6 rounded-[2rem] bg-zinc-50 border border-zinc-200 shadow-sm"
           >
+            <div className="flex -space-x-3">
+              {[
+                "https://randomuser.me/api/portraits/men/32.jpg",
+                "https://randomuser.me/api/portraits/women/44.jpg",
+                "https://randomuser.me/api/portraits/men/51.jpg",
+                "https://randomuser.me/api/portraits/women/17.jpg",
+              ].map((src, i) => (
+                <img key={i} src={src} className="w-12 h-12 rounded-full border-4 border-white shadow-sm object-cover" alt="Client" />
+              ))}
+            </div>
             <div className="text-sm">
-              <p className="text-zinc-900 font-black uppercase tracking-tight">50+ Satisfied Clients</p>
+              <p className="text-zinc-900 font-black uppercase tracking-tight">50+ Happy Clients</p>
             </div>
           </motion.div>
         </div>
