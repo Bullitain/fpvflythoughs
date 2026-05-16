@@ -9,20 +9,27 @@ interface WorkPageProps {
 }
 
 const VideoTile = ({ id, index, onPlay }: { id: string; index: number; onPlay: (id: string) => void }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.2 + index * 0.12, duration: 0.6 }}
-    onClick={() => onPlay(id)}
-    className="rounded-3xl overflow-hidden bg-zinc-900 aspect-video cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_rgba(56,189,248,0.35)]"
-  >
-    <img
-      src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
-      onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }}
-      alt={`FPV Flythrough ${index + 1}`}
-      className="w-full h-full object-cover"
+  <div className="relative group/tile">
+    {/* Glow — blurred copy of the thumbnail, fades in on hover */}
+    <div
+      className="absolute -inset-4 rounded-[2.5rem] opacity-0 group-hover/tile:opacity-90 transition-opacity duration-500 blur-[60px] scale-110 pointer-events-none"
+      style={{ backgroundImage: `url(https://img.youtube.com/vi/${id}/maxresdefault.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     />
-  </motion.div>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2 + index * 0.12, duration: 0.6 }}
+      onClick={() => onPlay(id)}
+      className="relative rounded-3xl overflow-hidden bg-zinc-900 aspect-video cursor-pointer transition-transform duration-300 group-hover/tile:scale-105"
+    >
+      <img
+        src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+        onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }}
+        alt={`FPV Flythrough ${index + 1}`}
+        className="w-full h-full object-cover"
+      />
+    </motion.div>
+  </div>
 );
 
 const videos = [
