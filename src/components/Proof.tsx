@@ -57,13 +57,8 @@ export const Proof: React.FC = () => {
             viewport={{ once: true }}
             className="flex items-center gap-4 p-6 rounded-[2rem] bg-zinc-50 border border-zinc-200 shadow-sm"
           >
-            <div className="flex -space-x-3">
-              {[1, 2, 3, 4].map((i) => (
-                <img key={i} src={`https://picsum.photos/seed/avatar${i}/40/40`} className="w-12 h-12 rounded-full border-4 border-white shadow-sm" alt="Client" />
-              ))}
-            </div>
             <div className="text-sm">
-              <p className="text-zinc-900 font-black uppercase tracking-tight">50+ Happy Clients</p>
+              <p className="text-zinc-900 font-black uppercase tracking-tight">50+ Satisfied Clients</p>
             </div>
           </motion.div>
         </div>
