@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface OurWorkProps {
   onSeeMoreClick: () => void;
@@ -14,7 +14,7 @@ const VideoTile = ({ id, index }: { id: string; index: number }) => {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="aspect-video rounded-[2rem] overflow-hidden bg-zinc-900 shadow-xl shadow-zinc-200/50"
+      className="aspect-video rounded-[2rem] overflow-hidden bg-zinc-900 shadow-xl shadow-zinc-200/50 hover:scale-105 transition-transform duration-300 cursor-pointer"
     >
       {playing ? (
         <iframe
@@ -25,19 +25,13 @@ const VideoTile = ({ id, index }: { id: string; index: number }) => {
           className="w-full h-full"
         />
       ) : (
-        <div onClick={() => setPlaying(true)} className="relative w-full h-full cursor-pointer group/thumb">
+        <div onClick={() => setPlaying(true)} className="w-full h-full">
           <img
             src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
             onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }}
             alt={`FPV Flythrough ${index + 1}`}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/10 group-hover/thumb:bg-black/30 transition-colors" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full bg-white/90 group-hover/thumb:scale-110 group-hover/thumb:bg-white transition-all flex items-center justify-center shadow-lg">
-              <Play className="w-6 h-6 fill-zinc-900 text-zinc-900 ml-1" />
-            </div>
-          </div>
         </div>
       )}
     </motion.div>
