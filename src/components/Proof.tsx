@@ -11,11 +11,11 @@ const testimonials = [
     avatar: "https://www.dropbox.com/scl/fi/02a6wphq1dtycdjqc3ld2/Dave_Husk.webp?rlkey=w6eonbmfeq5jzkmd3bq4og0ph&st=qj9ma0m8&raw=1"
   },
   {
-    name: "Sarah Chen",
-    role: "Founder, Urban Spaces",
-    content: "I've never seen anything like it. The precision and speed of the drone through our office space was breathtaking. Highly recommend.",
+    name: "Paris Vlachos",
+    role: "Real Estate Manager",
+    content: "FPV Flythroughs UK delivered exactly what we needed to bring our properties to life in a fresh and modern way. The footage is high-end and professional.",
     rating: 5,
-    avatar: "https://picsum.photos/seed/person2/100/100"
+    avatar: "https://www.dropbox.com/scl/fi/90e7h5ugzn6vblszvnifz/real-estate-manager_00000.jpg?rlkey=culawd70n18ducw3j32uty5b7&st=5o4ag8bs&raw=1"
   },
   {
     name: "Marcus Thorne",
