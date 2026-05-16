@@ -18,11 +18,11 @@ const testimonials = [
     avatar: "https://www.dropbox.com/scl/fi/90e7h5ugzn6vblszvnifz/real-estate-manager_00000.jpg?rlkey=culawd70n18ducw3j32uty5b7&st=5o4ag8bs&raw=1"
   },
   {
-    name: "Marcus Thorne",
-    role: "Real Estate Developer",
-    content: "FPV Flythroughs UK delivered exactly what we needed to sell our luxury penthouses. The footage is high-end and professional.",
+    name: "Natalie Crane",
+    role: "Head of Digital Marketing, Frasers Group",
+    content: "FPV flythroughs did such an amazing job at capturing our events in a dynamic way that was missing in the past. We will certainly be using them again.",
     rating: 5,
-    avatar: "https://picsum.photos/seed/person3/100/100"
+    avatar: "https://www.dropbox.com/scl/fi/fm8tqmanjs1tqqu2s2h3b/natalie-crane.jpg?rlkey=i8e1s48oybv7whj8oho650lz9&st=tdei8i5x&raw=1"
   }
 ];
 
