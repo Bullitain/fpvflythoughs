@@ -20,7 +20,7 @@ const testimonials = [
   {
     name: "Natalie Crane",
     role: "Head of Digital Marketing, Frasers Group",
-    content: "FPV flythroughs did such an amazing job at capturing our events in a dynamic way that was missing in the past. We will certainly be using them again.",
+    content: "FPV Flythroughs did such an amazing job at capturing our events in a dynamic way that was missing in the past. We will certainly be using them again.",
     rating: 5,
     avatar: "https://www.dropbox.com/scl/fi/fm8tqmanjs1tqqu2s2h3b/natalie-crane.jpg?rlkey=i8e1s48oybv7whj8oho650lz9&st=tdei8i5x&raw=1"
   }
@@ -51,26 +51,6 @@ export const Proof: React.FC = () => {
             </motion.p>
           </div>
           
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 p-6 rounded-[2rem] bg-zinc-50 border border-zinc-200 shadow-sm"
-          >
-            <div className="flex -space-x-3">
-              {[
-                "https://randomuser.me/api/portraits/men/32.jpg",
-                "https://randomuser.me/api/portraits/women/44.jpg",
-                "https://randomuser.me/api/portraits/men/51.jpg",
-                "https://randomuser.me/api/portraits/women/17.jpg",
-              ].map((src, i) => (
-                <img key={i} src={src} className="w-12 h-12 rounded-full border-4 border-white shadow-sm object-cover" alt="Client" />
-              ))}
-            </div>
-            <div className="text-sm">
-              <p className="text-zinc-900 font-black uppercase tracking-tight">50+ Happy Clients</p>
-            </div>
-          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
