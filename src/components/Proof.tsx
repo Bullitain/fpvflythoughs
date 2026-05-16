@@ -4,11 +4,11 @@ import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Stanley Kubrik",
-    role: "Film Enthusiast",
-    content: "i literally have never seen something this cool in my entire life... and i was in vietnam!",
+    name: "Dave Young",
+    role: "HUSK Co-Founder",
+    content: "FPV Flythroughs UK brought my vision to life with such precision and professionalism that I'd recommend them to anyone. Just incredible work.",
     rating: 5,
-    avatar: "https://media1.tenor.com/m/qz-TUNf2WZQAAAAC/lad-dont-even-joke.gif"
+    avatar: "https://www.dropbox.com/scl/fi/02a6wphq1dtycdjqc3ld2/Dave_Husk.webp?rlkey=w6eonbmfeq5jzkmd3bq4og0ph&st=qj9ma0m8&raw=1"
   },
   {
     name: "Sarah Chen",
