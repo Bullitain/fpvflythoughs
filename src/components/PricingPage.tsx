@@ -184,7 +184,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ isOpen, onClose, onCon
               transition={{ delay: 0.7 }}
               className="text-center text-zinc-400 text-xs mt-6 max-w-2xl mx-auto leading-relaxed"
             >
-              * All prices shown are starting prices and exclude VAT. Travel to shoot locations outside a 50-mile radius and the cost of acquiring any necessary flight permits or airspace authorisations will be quoted separately and added to the final price.
+              * All prices shown are starting prices. Travel to shoot locations and the cost of acquiring any necessary flight permits or airspace authorisations will be quoted separately and added to the final price.
             </motion.p>
           </div>
         </motion.div>
