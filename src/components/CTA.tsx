@@ -46,7 +46,7 @@ export const CTA: React.FC<CTAProps> = ({ onContactClick, onPricingClick }) => {
         <p>© 2026 FPV FLYTHROUGHS UK. All rights reserved.</p>
         <div className="flex justify-center gap-8 mt-6">
           <a href="#" className="hover:text-zinc-900 transition-colors">Instagram</a>
-          <a href="#" className="hover:text-zinc-900 transition-colors">YouTube</a>
+          <a href="https://www.youtube.com/@FPVFLYTHROUGHSUK" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 transition-colors">YouTube</a>
           <a href="#" className="hover:text-zinc-900 transition-colors">LinkedIn</a>
         </div>
       </footer>
