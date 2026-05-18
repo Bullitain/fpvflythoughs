@@ -12,9 +12,10 @@ const DroneLogo = () => (
 
 interface NavbarProps {
   onContactClick: () => void;
+  onPricingClick: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onContactClick, onPricingClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLinkClick = () => setIsMenuOpen(false);
@@ -22,6 +23,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
   const handleContactClick = () => {
     setIsMenuOpen(false);
     onContactClick();
+  };
+
+  const handlePricingClick = () => {
+    setIsMenuOpen(false);
+    onPricingClick();
   };
 
   return (
@@ -44,6 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
           <a href="#services" className="hover:text-zinc-900 transition-colors">Services</a>
           <a href="#work" className="hover:text-zinc-900 transition-colors">Our Work</a>
           <a href="#testimonials" className="hover:text-zinc-900 transition-colors">Testimonials</a>
+          <button onClick={handlePricingClick} className="hover:text-zinc-900 transition-colors">Pricing</button>
           <button
             onClick={onContactClick}
             className="px-5 py-2.5 rounded-full bg-zinc-900 text-white font-bold hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 transition-all active:scale-95 shadow-lg shadow-zinc-200"
@@ -92,6 +99,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
               >
                 Testimonials
               </a>
+              <button
+                onClick={handlePricingClick}
+                className="py-3 text-left text-sm font-bold text-zinc-500 hover:text-zinc-900 transition-colors border-b border-zinc-100"
+              >
+                Pricing
+              </button>
               <button
                 onClick={handleContactClick}
                 className="mt-3 w-full px-5 py-3 rounded-full bg-zinc-900 text-white font-bold hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 transition-all active:scale-95"

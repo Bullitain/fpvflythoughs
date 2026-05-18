@@ -4,9 +4,10 @@ import { Mail, ArrowRight } from 'lucide-react';
 
 interface CTAProps {
   onContactClick: () => void;
+  onPricingClick: () => void;
 }
 
-export const CTA: React.FC<CTAProps> = ({ onContactClick }) => {
+export const CTA: React.FC<CTAProps> = ({ onContactClick, onPricingClick }) => {
   return (
     <section className="py-32 px-6">
       <motion.div 
@@ -34,7 +35,7 @@ export const CTA: React.FC<CTAProps> = ({ onContactClick }) => {
             >
               Contact Us <Mail className="w-6 h-6 text-sky-500" />
             </button>
-            <button className="text-white font-black uppercase tracking-widest text-sm flex items-center gap-2 group hover:text-sky-400 transition-colors">
+            <button onClick={onPricingClick} className="text-white font-black uppercase tracking-widest text-sm flex items-center gap-2 group hover:text-sky-400 transition-colors">
               View Pricing <ArrowRight className="w-5 h-5 text-sky-500 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

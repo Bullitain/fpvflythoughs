@@ -8,6 +8,7 @@ import { Proof } from './components/Proof';
 import { CTA } from './components/CTA';
 import { ContactForm, ContactFormData } from './components/ContactForm';
 import { WorkPage } from './components/WorkPage';
+import { PricingPage } from './components/PricingPage';
 import { VideoModal } from './components/VideoModal';
 
 declare global {
@@ -22,6 +23,7 @@ const CAL_LINK = 'ben-wray-uyctap/fpv-flythrough-discovery-call';
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isWorkOpen, setIsWorkOpen] = useState(false);
+  const [isPricingOpen, setIsPricingOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const openContact = () => setIsContactOpen(true);
@@ -82,7 +84,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-zinc-900 selection:bg-sky-500/30 selection:text-sky-900">
       <BackgroundEffects />
-      <Navbar onContactClick={openContact} />
+      <Navbar onContactClick={openContact} onPricingClick={() => setIsPricingOpen(true)} />
 
       <main>
         <Hero onContactClick={openContact} onShowreelClick={() => setActiveVideo('pILkdNeoy6k')} />
@@ -97,7 +99,7 @@ export default function App() {
         <Proof />
 
         {/* Call to Action */}
-        <CTA onContactClick={openContact} />
+        <CTA onContactClick={openContact} onPricingClick={() => setIsPricingOpen(true)} />
       </main>
 
       <ContactForm
@@ -106,6 +108,7 @@ export default function App() {
         onSuccess={handleContactSuccess}
       />
       <WorkPage isOpen={isWorkOpen} onClose={() => setIsWorkOpen(false)} onVideoClick={(id) => setActiveVideo(id)} />
+      <PricingPage isOpen={isPricingOpen} onClose={() => setIsPricingOpen(false)} onContactClick={openContact} />
       <VideoModal isOpen={activeVideo !== null} onClose={() => setActiveVideo(null)} videoId={activeVideo ?? ''} />
 
       {/* ElevenLabs Conversational AI Widget */}
