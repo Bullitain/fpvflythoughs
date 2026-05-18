@@ -17,7 +17,6 @@ const tiers = [
       'Full FPV flight session',
       'Stabilised footage delivered',
       'Digital delivery',
-      'Up to 60 minutes of flight time',
     ],
     cta: 'Get Started',
     highlight: false,
@@ -47,7 +46,6 @@ const tiers = [
       'Seamless cinematic transitions',
       'Full narrative edit',
       'Two rounds of revisions',
-      'Priority turnaround',
     ],
     cta: 'Get Started',
     highlight: false,
@@ -177,6 +175,16 @@ export const PricingPage: React.FC<PricingPageProps> = ({ isOpen, onClose, onCon
                 Get in touch
               </button>{' '}
               and we'll find the best fit for your project.
+            </motion.p>
+
+            {/* Smallprint */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className="text-center text-zinc-400 text-xs mt-6 max-w-2xl mx-auto leading-relaxed"
+            >
+              * All prices shown are starting prices and exclude VAT. Travel to shoot locations outside a 50-mile radius and the cost of acquiring any necessary flight permits or airspace authorisations will be quoted separately and added to the final price.
             </motion.p>
           </div>
         </motion.div>
