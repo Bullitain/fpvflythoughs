@@ -61,8 +61,6 @@ export const Proof: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05, duration: 0.4, ease: "easeOut" }}
-              whileHover={{ y: -8 }}
-              transition={{ type: 'tween', duration: 0.1 }}
               className="p-10 rounded-[2.5rem] bg-white border border-zinc-100 shadow-2xl shadow-zinc-200/50 relative group transition-transform duration-300 hover:scale-105"
             >
               <div className="absolute top-10 right-10 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
