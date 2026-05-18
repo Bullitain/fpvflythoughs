@@ -52,9 +52,10 @@ export const ValueProp: React.FC = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
             whileHover={{ y: -12 }}
-            className="group p-10 rounded-[2.5rem] bg-white border border-zinc-100 shadow-2xl shadow-zinc-200/50 hover:border-sky-500/30 transition-all duration-200 ease-out"
+            transition={{ type: 'tween', duration: 0.1 }}
+            className="group p-10 rounded-[2.5rem] bg-white border border-zinc-100 shadow-2xl shadow-zinc-200/50 hover:border-sky-500/30 transition-all duration-100 ease-out"
           >
-            <div className="w-16 h-16 rounded-2xl bg-zinc-900 text-white flex items-center justify-center mb-8 group-hover:bg-gradient-to-r group-hover:from-sky-600 group-hover:to-sky-400 transition-all duration-300 shadow-lg shadow-zinc-200">
+            <div className="w-16 h-16 rounded-2xl bg-zinc-900 text-white flex items-center justify-center mb-8 group-hover:bg-gradient-to-r group-hover:from-sky-600 group-hover:to-sky-400 transition-all duration-100 shadow-lg shadow-zinc-200">
               <feature.icon className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-black text-zinc-900 mb-4 uppercase tracking-tight">{feature.title}</h3>
