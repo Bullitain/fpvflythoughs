@@ -112,7 +112,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ isOpen, onClose, onCon
                       {/* Sky glow behind featured card */}
                       <div className="absolute inset-0 rounded-[2.5rem] bg-sky-500/10 blur-2xl -z-10 scale-110 pointer-events-none" />
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <span className="px-5 py-1.5 rounded-full bg-gradient-to-r from-sky-600 to-sky-400 text-white text-xs font-black uppercase tracking-widest shadow-lg">
+                        <span className="px-5 py-1.5 rounded-full bg-gradient-to-r from-sky-600 to-sky-400 text-white text-xs font-black uppercase tracking-widest shadow-lg whitespace-nowrap">
                           Most Popular
                         </span>
                       </div>
