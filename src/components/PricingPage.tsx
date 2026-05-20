@@ -126,7 +126,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ isOpen, onClose, onCon
 
                   {/* Price */}
                   <div className="mb-6">
-                    <span className={`text-sm font-bold ${tier.highlight ? 'text-zinc-400' : 'text-zinc-500'}`}>From </span>
+                    <div className={`text-sm font-bold ${tier.highlight ? 'text-zinc-400' : 'text-zinc-500'}`}>From</div>
                     <span className="text-5xl font-black tracking-tight">{tier.price}</span>
                   </div>
 
